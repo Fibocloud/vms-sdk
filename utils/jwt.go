@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"math/rand"
 	"time"
 
@@ -21,16 +22,27 @@ type TokenClaims struct {
 
 // ExtractJWTString Get claim from token string
 func ExtractJWTString(tokenString string) (TokenClaims, error) {
-	retClaim := TokenClaims{}
+	retClaim := jwt.MapClaims{}
 	JwtToken, err := jwt.ParseWithClaims(tokenString, retClaim, func(t *jwt.Token) (interface{}, error) {
 		return GetAccessSecretKey(), nil
 	})
+
+	result := TokenClaims{
+		MapClaims: retClaim,
+	}
+
 	if err == nil {
 		if !JwtToken.Valid {
-			return retClaim, nil
+			return result, nil
 		}
 	}
-	return retClaim, err
+
+	userID, ok := retClaim["id"].(float64)
+	if !ok {
+		return result, fmt.Errorf("jwt not contains user id")
+	}
+	result.ID = uint(userID)
+	return result, err
 }
 
 // GenerateToken ...
