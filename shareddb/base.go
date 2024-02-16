@@ -31,4 +31,10 @@ type (
 		ConfigEnvStrings pq.StringArray `gorm:"type:text[];column:config_env_strings" json:"config_env_strings,omitempty" swaggertype:"array,string"`
 		ColorCode        string         `gorm:"column:color_code" json:"color_code"` // Өнгө
 	}
+
+	Lang struct {
+		Base
+		Name string `gorm:"column:name" json:"name"`
+		Code string `gorm:"column:code;unique" json:"code"`
+	}
 )
