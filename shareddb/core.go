@@ -20,7 +20,6 @@ type (
 		StaffID          uint           `gorm:"column:staff_id" json:"staff_id"`               // Байршил
 		Staff            *Staff         `gorm:"foreignKey:StaffID" json:"staff,omitempty"`     //
 		PossiblePayments pq.StringArray `gorm:"type:text[];column:possible_payments" json:"possible_payments,omitempty" swaggertype:"array,string"`
-		Location         *Location      `gorm:"foreignKey:MachineID" json:"location,omitempty"` //
 	}
 
 	BaseTrip struct {
