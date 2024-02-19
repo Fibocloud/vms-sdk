@@ -55,11 +55,8 @@ type (
 		ContactName        string            `gorm:"column:contact_name" json:"contact_name"`         // Байршилтай холбоо барих нэр
 		ContactPhone       string            `gorm:"column:contact_phone" json:"contact_phone"`       // Байршилтай холбоо барих утас
 		LastFilledDate     time.Time         `gorm:"column:last_filled_date" json:"last_filled_date"` // Сүүлд очсон огноо
-		StaffID            uint              `gorm:"column:staff_id" json:"staff_id"`                 // ХТ
-		Staff              *Staff            `gorm:"foreignKey:StaffID" json:"staff,omitempty"`       //
 		LocationCategoryID uint              `gorm:"column:location_category_id" json:"location_category_id"`
 		LocationCategory   *LocationCategory `gorm:"foreignKey:LocationCategoryID" json:"location_category,omitempty"` //
-		MachineID          uint              `gorm:"column:machine_id" json:"machine_id"`                              // ХТ
 	}
 
 	LocationCategory struct {
