@@ -10,7 +10,8 @@ type (
 		PaymentMethod string  `gorm:"column:payment_method" json:"payment_method"`
 		BankInvioce   string  `gorm:"column:bank_invoice" json:"bank_invoice"` // Банкнаас явуулсан гүйлгээний дугаар
 		BankQrText    string  `gorm:"column:bank_qr_text" json:"bank_qr_text"` // Qr хадгалах талбар
-		IsPaid        bool    `gorm:"column:is_paid" json:"is_paid"`           // амжилттай дууссан
+		Phone         string  `gorm:"column:phone" json:"phone"`
+		IsPaid        bool    `gorm:"column:is_paid" json:"is_paid"` // амжилттай дууссан
 	}
 
 	EbarimtStock struct {
