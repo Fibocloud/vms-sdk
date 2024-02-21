@@ -32,6 +32,19 @@ type (
 		ColorCode        string         `gorm:"column:color_code" json:"color_code"` // Өнгө
 	}
 
+	PaymentConfig struct {
+		Base
+		OrgID                  uint          `gorm:"column:org_id" json:"org_id"`
+		Organization           *Organization `gorm:"foreignKey:OrgID" json:"organization,omitempty"`
+		PaymentTypeID          uint          `gorm:"column:payment_type_id" json:"payment_type_id"`
+		PaymentType            *PaymentType  `gorm:"foreignKey:PaymentTypeID" json:"payment_type,omitempty"`
+		IsActive               bool          `gorm:"column:is_active" json:"is_active"`
+		DiscountPricePrecent   float64       `gorm:"column:discount_price_precent" json:"discount_percent"` // Хямдралын хувь
+		DiscountEbarimtPrecent float64       `gorm:"column:discount_ebarimt_precent" json:"discount_ebarimt_precent"`
+		UUID                   string        `gorm:"column:uuid" json:"uuid"`
+		Configs                []Config      `gorm:"foreignKey:RefUUID;references:UUID" json:"configs,omitempty"`
+	}
+
 	Lang struct {
 		Base
 		Name string `gorm:"column:name" json:"name"`
