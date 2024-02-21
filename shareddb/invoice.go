@@ -12,6 +12,7 @@ type (
 		BankQrText    string  `gorm:"column:bank_qr_text" json:"bank_qr_text"` // Qr хадгалах талбар
 		Phone         string  `gorm:"column:phone" json:"phone"`
 		IsPaid        bool    `gorm:"column:is_paid" json:"is_paid"` // амжилттай дууссан
+		Callback      string  `gorm:"column:callback" json:"callback"`
 	}
 
 	EbarimtStock struct {
