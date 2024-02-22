@@ -5,7 +5,7 @@ import (
 
 	"github.com/Fibocloud/vms-sdk/constants"
 	"github.com/Fibocloud/vms-sdk/shareddb"
-	"github.com/Fibocloud/vms-sdk/utils"
+	"github.com/Fibocloud/vms-sdk/sharedutils"
 	"github.com/gofiber/fiber/v2"
 	"gorm.io/gorm"
 )
@@ -27,7 +27,7 @@ func Auth(db *gorm.DB) func(c *fiber.Ctx) error {
 
 		orgHeaderID := headers["Org-Id"]
 
-		claims, err := utils.ExtractJWTString(requiredToken[0][7:])
+		claims, err := sharedutils.ExtractJWTString(requiredToken[0][7:])
 		if err != nil {
 			return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
 				"message": "Таны нэвтрэх хугацаа дууссан байна",
@@ -85,7 +85,7 @@ func GetAuthOptional(c *fiber.Ctx, db *gorm.DB) *shareddb.Staff {
 	if len(requiredToken) == 0 || len(requiredToken[0]) < 8 {
 		return nil
 	}
-	claims, err := utils.ExtractJWTString(requiredToken[0][7:])
+	claims, err := sharedutils.ExtractJWTString(requiredToken[0][7:])
 	if err != nil {
 		return nil
 	}

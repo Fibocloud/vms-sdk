@@ -13,6 +13,7 @@ type (
 		Phone         string  `gorm:"column:phone" json:"phone"`
 		IsPaid        bool    `gorm:"column:is_paid" json:"is_paid"` // амжилттай дууссан
 		Callback      string  `gorm:"column:callback" json:"callback"`
+		PaymentError  string  `gorm:"column:payment_error" json:"payment_error"`
 	}
 
 	EbarimtStock struct {
