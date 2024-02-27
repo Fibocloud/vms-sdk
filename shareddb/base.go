@@ -50,4 +50,12 @@ type (
 		Name string `gorm:"column:name" json:"name"`
 		Code string `gorm:"column:code;unique" json:"code"`
 	}
+
+	Address struct {
+		Base
+		ParentID     uint   `gorm:"column:parent_id" json:"parent_id"`
+		RegionName   string `gorm:"column:region_name" json:"region_name"`
+		RegionTypeID int    `gorm:"column:region_type_id" json:"region_type_id"`
+		OrderField   int    `gorm:"column:order_field;not null;autoIncrement" json:"order_field"`
+	}
 )
