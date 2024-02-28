@@ -5,9 +5,9 @@ import (
 	"fmt"
 )
 
-func (q *Client) CreatePayment(input *PaymentCreateInput) (BaseResponse, error) {
+func (q *Client) CreatePayment(input *PaymentCreateInput) (PaymentCreateResponse, error) {
 	res, err := q.httpRequest("/integration/payment/create", input)
-	var response BaseResponse
+	var response PaymentCreateResponse
 
 	if err != nil {
 		return response, err

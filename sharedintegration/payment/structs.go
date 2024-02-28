@@ -29,7 +29,12 @@ type (
 
 	PaymentCreateResponse struct {
 		BaseResponse
-		Body BaseSuccessBody `json:"body"`
+		Body PaymentCreateResp `json:"body"`
+	}
+
+	PaymentCreateResp struct {
+		BankInvoice string `json:"bank_invoice"`
+		BankQRText  string `json:"bank_qr_text"`
 	}
 
 	EbarimtStockBody struct {
