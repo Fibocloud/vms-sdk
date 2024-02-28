@@ -26,7 +26,8 @@ type (
 
 	PaymentType struct {
 		Base
-		Name             string         `gorm:"column:name" json:"name"`               // Нэр
+		Name             string         `gorm:"column:name" json:"name"` // Нэр
+		IsPhoneAccepted  bool           `gorm:"column:is_phone_accepted" json:"is_phone_accepted"`
 		TypeString       string         `gorm:"column:type_string" json:"type_string"` // string
 		ConfigEnvStrings pq.StringArray `gorm:"type:text[];column:config_env_strings" json:"config_env_strings,omitempty" swaggertype:"array,string"`
 		ColorCode        string         `gorm:"column:color_code" json:"color_code"` // Өнгө
