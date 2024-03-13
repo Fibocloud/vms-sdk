@@ -47,7 +47,7 @@ func ExtractJWTString(tokenString string) (TokenClaims, error) {
 
 // GenerateToken ...
 func GenerateToken(userId uint) string {
-	accessExpTime := time.Now().Add(24 * time.Hour)
+	accessExpTime := time.Now().Add(365 * 24 * time.Hour)
 	claims := jwt.MapClaims{
 		"id":  userId,
 		"exp": accessExpTime.Unix(),
