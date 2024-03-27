@@ -28,7 +28,13 @@ func (v *Client) httpRequestRaw(url string, body interface{}) (response []byte, 
 	}
 	response, _ = ioutil.ReadAll(res.Body)
 	if res.StatusCode != 200 {
-		return nil, errors.New("response")
+		var baseResponse BaseResponse
+		err := json.Unmarshal(response, &baseResponse)
+		if err != nil {
+			return nil, errors.New("системийн алдаа")
+		}
+
+		return nil, errors.New(baseResponse.Message)
 	}
 
 	return response, nil
@@ -54,7 +60,12 @@ func (v *Client) httpRequest(url string, body interface{}) (response []byte, err
 	}
 	response, _ = ioutil.ReadAll(res.Body)
 	if res.StatusCode != 200 {
-		return nil, errors.New("response")
+		var baseResponse BaseResponse
+		err := json.Unmarshal(response, &baseResponse)
+		if err != nil {
+			return nil, errors.New("системийн алдаа")
+		}
+		return nil, errors.New(baseResponse.Message)
 	}
 
 	return response, nil
