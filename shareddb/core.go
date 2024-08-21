@@ -35,6 +35,7 @@ type (
 		NewSize    float64 `gorm:"column:new_size" json:"new_size"`       // 1- Хүлээгдэж байгаа, 2- Хийгдсэн //
 		FillSize   float64 `gorm:"column:fill_size" json:"fill_size"`     // Дүүргэсэн хэмжээ
 		ReturnSize float64 `gorm:"column:return_size" json:"return_size"` // Гаргасан хэмжээ
+		SellSize   float64 `gorm:"column:sell_size" json:"sell_size"`     // Борлуулалт гаргасан хэмжээ
 		TripID     uint    `gorm:"column:trip_id" json:"trip_id"`         // харяалагдах аялал
 		MachineID  uint    `gorm:"column:machine_id" json:"machine_id"`   // харяалагдах аялал
 		SlotNumber string  `gorm:"column:slot_number" json:"slot_number"` // тухайн үеийн слотын дугаар
