@@ -32,14 +32,14 @@ type (
 	BaseTripItem struct {
 		Base
 		BaseOrg
-		NewSize    float64 `gorm:"column:new_size" json:"new_size"`       // 1- Хүлээгдэж байгаа, 2- Хийгдсэн //
-		FillSize   float64 `gorm:"column:fill_size" json:"fill_size"`     // Дүүргэсэн хэмжээ
-		ReturnSize float64 `gorm:"column:return_size" json:"return_size"` // Гаргасан хэмжээ
-		InvoiceID  uint    `gorm:"column:invoice_id" json:"invoice_id"`   // борлуулалт
-		SellSize   float64 `gorm:"column:sell_size" json:"sell_size"`     // Борлуулалт гаргасан хэмжээ
-		TripID     uint    `gorm:"column:trip_id" json:"trip_id"`         // харяалагдах аялал
-		MachineID  uint    `gorm:"column:machine_id" json:"machine_id"`   // харяалагдах аялал
-		SlotNumber string  `gorm:"column:slot_number" json:"slot_number"` // тухайн үеийн слотын дугаар
+		NewSize     float64 `gorm:"column:new_size" json:"new_size"`         // 1- Хүлээгдэж байгаа, 2- Хийгдсэн //
+		FillSize    float64 `gorm:"column:fill_size" json:"fill_size"`       // Дүүргэсэн хэмжээ
+		ReturnSize  float64 `gorm:"column:return_size" json:"return_size"`   // Гаргасан хэмжээ
+		InvoiceUUID string  `gorm:"column:invoice_uuid" json:"invoice_uuid"` // борлуулалт
+		SellSize    float64 `gorm:"column:sell_size" json:"sell_size"`       // Борлуулалт гаргасан хэмжээ
+		TripID      uint    `gorm:"column:trip_id" json:"trip_id"`           // харяалагдах аялал
+		MachineID   uint    `gorm:"column:machine_id" json:"machine_id"`     // харяалагдах аялал
+		SlotNumber  string  `gorm:"column:slot_number" json:"slot_number"`   // тухайн үеийн слотын дугаар
 	}
 
 	Location struct {
