@@ -20,7 +20,7 @@ func Auth(db *gorm.DB) func(c *fiber.Ctx) error {
 		requiredToken, ok := headers["Authorization"]
 		if !ok || len(requiredToken) == 0 || len(requiredToken[0]) < 8 {
 			return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
-				"message": "Таны нэвтрэх хэрэгтэй",
+				"message": "Та нэвтрэх хэрэгтэй",
 				"body":    nil,
 			})
 		}
@@ -46,6 +46,8 @@ func Auth(db *gorm.DB) func(c *fiber.Ctx) error {
 		orgID := ""
 		if len(orgHeaderID) == 0 || orgHeaderID[0] == "" {
 			orgID = fmt.Sprintf("%d", user.OrgID)
+		} else {
+			orgID = orgHeaderID[0]
 		}
 		db.First(&org, orgID)
 
