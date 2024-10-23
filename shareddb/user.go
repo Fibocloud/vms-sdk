@@ -22,8 +22,13 @@ type (
 
 	Organization struct {
 		Base
-		Name        string `gorm:"column:name;not null" json:"name"`      // Нэр
-		Description string `gorm:"column:description" json:"description"` // Тайлбар
-		Level       string `gorm:"column:level" json:"level"`             //
+		Name          string `gorm:"column:name;not null" json:"name"`      // Нэр
+		Description   string `gorm:"column:description" json:"description"` // Тайлбар
+		Level         string `gorm:"column:level" json:"level"`             //
+		FacebookName  string `gorm:"column:facebook_name" json:"facebook_name"`
+		InstagramName string `gorm:"column:instagram_name" json:"instagram_name"`
+		Email         string `gorm:"column:email" json:"email"`
+		ContactName   string `gorm:"column:contact_name" json:"contact_name"`
+		Phone         string `gorm:"column:phone" json:"phone"`
 	}
 )
