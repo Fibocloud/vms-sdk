@@ -49,7 +49,7 @@ type (
 		BillId        string         `gorm:"column:bill_id" json:"bill_id"`
 		MacAddress    string         `gorm:"column:mac_address" json:"mac_address"`
 		Date          string         `gorm:"column:date" json:"date"`
-		Lottery       string         `gorm:"column:lottery" json:"-"`
+		Lottery       string         `gorm:"column:lottery" json:"lottery"`
 		InternalCode  string         `gorm:"column:internal_code" json:"internal_code"`
 		QrData        string         `gorm:"column:qr_data" json:"qr_data"`
 		MerchantId    string         `gorm:"column:merchant_id" json:"merchant_id"`
