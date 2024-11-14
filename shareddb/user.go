@@ -18,6 +18,8 @@ type (
 		DeviceID      string    `gorm:"column:device_id" json:"device_id"`
 		RoleID        uint      `gorm:"column:role_id" json:"role_id"`           //
 		Role          *Role     `gorm:"foreignKey:RoleID" json:"role,omitempty"` //
+		HasOtp        bool      `gorm:"column:has_otp" json:"has_otp"`
+		OtpSecret     string    `gorm:"column:otp_secret" json:"-"`
 	}
 
 	Organization struct {
